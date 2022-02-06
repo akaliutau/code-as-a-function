@@ -59,7 +59,7 @@ gcloud functions deploy sbaaf-gcp-background \
 ```
 where the parameter `--trigger-topic` which topic will trigger the function invocation when new messages are published to it.
 
-In some cases this command may be need to enabling service [cloudfunctions.googleapis.com] on project. The deployment normally takes 1-3 mins.
+In some cases this command may be need to enabling service [cloudfunctions.googleapis.com] on project. The deployment normally takes 1-3 min.
 The deployed function is available at `https://console.cloud.google.com/functions/list?project=project_id` 
 
 4. Invoke the background function by publishing a message to topic, the outcome must be the same as in Local testing:
@@ -67,6 +67,7 @@ The deployed function is available at `https://console.cloud.google.com/function
 ```
 gcloud pubsub topics publish cf-trigger --message="hello big world"
 ```
+The result of execution should be visible in logs, and in cf-results topic
 
 
 # References
@@ -74,5 +75,3 @@ gcloud pubsub topics publish cf-trigger --message="hello big world"
 [1] https://docs.spring.io/spring-cloud-function/docs/current/reference/html/gcp.html
 
 [2] https://github.com/spring-cloud/spring-cloud-function
-
-[3]
